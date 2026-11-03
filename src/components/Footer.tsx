@@ -1,15 +1,22 @@
 import React from 'react';
-import { Heart, Globe, Phone, Mail, MapPin } from 'lucide-react';
+import { Heart, Globe, Phone, Mail, MapPin, Lock } from 'lucide-react';
 import { Language } from '../types';
+import { PageRoute } from '../types/routes';
 import { translations } from '../data/translations';
 import { ImageWithFallback } from './ImageWithFallback';
+import { InstagramIcon, FacebookIcon } from './SocialIcons';
 
 interface FooterProps {
   currentLang: Language;
   onLanguageChange: (lang: Language) => void;
+  onNavigate: (route: PageRoute) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ currentLang, onLanguageChange }) => {
+export const Footer: React.FC<FooterProps> = ({
+  currentLang,
+  onLanguageChange,
+  onNavigate
+}) => {
   const t = translations[currentLang];
 
   const toggleLang = () => {
@@ -23,7 +30,13 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onLanguageChange })
         <div className="footer-grid">
           {/* Column 1: Brand Info */}
           <div className="footer-col footer-brand-col">
-            <div className="footer-logo-row">
+            <div
+              className="footer-logo-row"
+              onClick={() => onNavigate('home')}
+              role="button"
+              tabIndex={0}
+              style={{ cursor: 'pointer' }}
+            >
               <div className="footer-logo-wrap">
                 <ImageWithFallback
                   src="./assets/logo.png"
@@ -34,7 +47,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onLanguageChange })
               </div>
               <div>
                 <h3 className="footer-brand-title">{t.footer.aboutTitle}</h3>
-                <span className="footer-brand-sub">सोलापूर (महाराष्ट्र)</span>
+                <span className="footer-brand-sub">सोलापूर, महाराष्ट्र</span>
               </div>
             </div>
 
@@ -43,64 +56,109 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onLanguageChange })
             <div className="footer-motto-badge">
               <span>{t.footer.motto}</span>
             </div>
+
+            {/* Official Social Links in Footer */}
+            <div className="footer-social-box">
+              <span className="footer-social-title">
+                {currentLang === 'mr' ? 'सोशल मीडिया फॉलो करा:' : 'Connect With Us:'}
+              </span>
+              <div className="footer-social-links">
+                <a
+                  href="https://www.instagram.com/gsfsolapur/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-social-btn footer-insta-btn"
+                  title="Follow us on Instagram @gsfsolapur"
+                  aria-label="Instagram"
+                >
+                  <InstagramIcon size={18} />
+                  <span>Instagram</span>
+                </a>
+                <a
+                  href="https://www.facebook.com/share/1FWH8sPgXr/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-social-btn footer-fb-btn"
+                  title="Follow us on Facebook"
+                  aria-label="Facebook"
+                >
+                  <FacebookIcon size={18} />
+                  <span>Facebook</span>
+                </a>
+              </div>
+            </div>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Column 2: Governance & About */}
           <div className="footer-col">
-            <h4 className="footer-heading">{t.footer.quickLinks}</h4>
+            <h4 className="footer-heading">{t.footer.governance}</h4>
             <ul className="footer-links-list">
               <li>
-                <a href="#about">{t.nav.about}</a>
+                <button onClick={() => onNavigate('home')} className="footer-link-btn">
+                  {t.nav.home}
+                </button>
               </li>
               <li>
-                <a href="#mission">{t.nav.mission}</a>
+                <button onClick={() => onNavigate('about')} className="footer-link-btn">
+                  {t.nav.about}
+                </button>
               </li>
               <li>
-                <a href="#activities">{t.nav.activities}</a>
+                <button onClick={() => onNavigate('managing-committee')} className="footer-link-btn">
+                  {t.nav.managingCommittee}
+                </button>
               </li>
               <li>
-                <a href="#gallery">{t.nav.gallery}</a>
+                <button onClick={() => onNavigate('advisory-committee')} className="footer-link-btn">
+                  {t.nav.advisoryCommittee}
+                </button>
               </li>
               <li>
-                <a href="#donation">{t.nav.donate}</a>
+                <button onClick={() => onNavigate('mission-vision')} className="footer-link-btn">
+                  {t.nav.mission}
+                </button>
               </li>
               <li>
-                <a href="#volunteer">{t.nav.volunteer}</a>
-              </li>
-              <li>
-                <a href="#contact">{t.nav.contact}</a>
+                <button onClick={() => onNavigate('privacy-policy')} className="footer-link-btn">
+                  {t.nav.privacyPolicy}
+                </button>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Key Activities */}
+          {/* Column 3: Key Initiatives & Gallery */}
           <div className="footer-col">
-            <h4 className="footer-heading">{t.footer.activities}</h4>
+            <h4 className="footer-heading">{t.footer.programmes}</h4>
             <ul className="footer-links-list">
               <li>
-                <a href="#activities">
-                  {currentLang === 'mr' ? 'आरोग्य व वैद्यकीय शिबिरे' : 'Health & Medical Camps'}
-                </a>
+                <button onClick={() => onNavigate('events')} className="footer-link-btn">
+                  {currentLang === 'mr' ? 'उपक्रम व छायाचित्र दालन (Events Gallery)' : 'Events & Photo Gallery'}
+                </button>
               </li>
               <li>
-                <a href="#activities">
-                  {currentLang === 'mr' ? 'रक्तदान व जनजागृती' : 'Blood Donation Drives'}
-                </a>
+                <button onClick={() => onNavigate('health-camps')} className="footer-link-btn">
+                  {t.nav.healthCamps}
+                </button>
               </li>
               <li>
-                <a href="#activities">
-                  {currentLang === 'mr' ? 'क्रीडा व युवा विकास' : 'Sports & Youth Development'}
-                </a>
+                <button onClick={() => onNavigate('blood-donation')} className="footer-link-btn">
+                  {t.nav.bloodDonation}
+                </button>
               </li>
               <li>
-                <a href="#activities">
-                  {currentLang === 'mr' ? 'शिक्षण व विद्यार्थी सहाय्य' : 'Education Support'}
-                </a>
+                <button onClick={() => onNavigate('sports-youth')} className="footer-link-btn">
+                  {t.nav.sportsYouth}
+                </button>
               </li>
               <li>
-                <a href="#activities">
-                  {currentLang === 'mr' ? 'समाजसेवा व लोककल्याण' : 'Social Service & Welfare'}
-                </a>
+                <button onClick={() => onNavigate('education-social')} className="footer-link-btn">
+                  {t.nav.educationSocial}
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigate('volunteer')} className="footer-link-btn">
+                  {t.nav.volunteer}
+                </button>
               </li>
             </ul>
           </div>
@@ -111,7 +169,7 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onLanguageChange })
             <ul className="footer-contact-list">
               <li>
                 <MapPin size={16} className="f-icon" />
-                <span>१०२ सी ७३, भवानी पेठ, सोलापूर</span>
+                <span>१०२ सी ७३, भवानी पेठ, सोलापूर - ४१३००२</span>
               </li>
               <li>
                 <Phone size={16} className="f-icon" />
@@ -119,14 +177,24 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onLanguageChange })
               </li>
               <li>
                 <Mail size={16} className="f-icon" />
-                <a href="mailto:gitgangafoundation@gmail.com">gitgangafoundation@gmail.com</a>
+                <a href="mailto:geetgangasocialfoundation@gmail.com">geetgangasocialfoundation@gmail.com</a>
               </li>
             </ul>
 
             <div className="footer-lang-box">
               <button onClick={toggleLang} className="btn btn-sm btn-outline">
                 <Globe size={14} className="btn-icon" />
-                <span>भाषा बदला: {t.nav.switchLang}</span>
+                <span>भाषा बदला / Switch: {t.nav.switchLang}</span>
+              </button>
+            </div>
+
+            <div className="footer-donate-btn-wrap" style={{ marginTop: '1rem' }}>
+              <button
+                onClick={() => onNavigate('donate')}
+                className="btn btn-donate-header btn-block"
+              >
+                <Heart size={16} className="btn-icon" />
+                <span>{t.donation.scanHeading}</span>
               </button>
             </div>
           </div>
@@ -142,12 +210,17 @@ export const Footer: React.FC<FooterProps> = ({ currentLang, onLanguageChange })
           <p className="copyright-text">
             © {new Date().getFullYear()} {t.footer.copyright}
           </p>
-          <div className="footer-made-with">
-            <span>
-              {currentLang === 'mr' ? 'समाजसेवेसाठी समर्पित' : 'Dedicated to Community Welfare'}
-            </span>
-            <Heart size={14} className="heart-icon" color="#E11D48" />
-            <span>सोलापूर, महाराष्ट्र</span>
+          <div className="footer-bottom-links">
+            <button onClick={() => onNavigate('privacy-policy')} className="footer-link-inline">
+              <Lock size={12} className="inline-icon" />
+              <span>{t.nav.privacyPolicy}</span>
+            </button>
+            <span>•</span>
+            <div className="footer-made-with">
+              <span>{currentLang === 'mr' ? 'समाजसेवेसाठी समर्पित' : 'Dedicated to Social Service'}</span>
+              <Heart size={14} className="heart-icon" color="#E11D48" />
+              <span>सोलापूर, महाराष्ट्र</span>
+            </div>
           </div>
         </div>
       </div>

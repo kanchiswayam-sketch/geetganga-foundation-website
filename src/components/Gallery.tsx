@@ -9,7 +9,7 @@ interface GalleryProps {
 }
 
 export const Gallery: React.FC<GalleryProps> = ({ currentLang }) => {
-  const [activeFilter, setActiveFilter] = useState<'all' | 'health' | 'blood' | 'community'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'health' | 'blood' | 'community' | 'news'>('all');
   const [selectedPhoto, setSelectedPhoto] = useState<GalleryItem | null>(null);
   const t = translations[currentLang];
 
@@ -59,15 +59,21 @@ export const Gallery: React.FC<GalleryProps> = ({ currentLang }) => {
             >
               {t.gallery.filterCommunity}
             </button>
+            <button
+              onClick={() => setActiveFilter('news')}
+              className={`filter-btn ${activeFilter === 'news' ? 'is-active' : ''}`}
+            >
+              {t.gallery.filterNews}
+            </button>
           </div>
         </div>
 
-        {/* Gallery Grid */}
-        <div className="gallery-grid">
+        {/* Gallery Multi-Flexboxes Grid with Compact Images and 1-Line Info */}
+        <div className="gallery-flexboxes-grid">
           {filteredItems.map((item) => (
             <div
               key={item.id}
-              className="gallery-card"
+              className={`gallery-flex-box ${item.category === 'news' ? 'is-news-clipping' : ''}`}
               onClick={() => setSelectedPhoto(item)}
               role="button"
               tabIndex={0}
@@ -78,24 +84,22 @@ export const Gallery: React.FC<GalleryProps> = ({ currentLang }) => {
               }}
               aria-label={`View photo: ${item.title}`}
             >
-              <div className="gallery-image-box">
+              <div className="gallery-small-img-wrap">
                 <ImageWithFallback
                   src={item.imageSrc}
                   alt={item.alt}
-                  className="gallery-img"
-                  fallbackText="गीतगंगा उपक्रम"
+                  className="gallery-small-img"
+                  fallbackText="छायाचित्र"
                 />
                 <div className="gallery-hover-overlay">
                   <span className="zoom-btn">
-                    <ZoomIn size={22} />
-                    <span>{t.gallery.viewLarge}</span>
+                    <ZoomIn size={18} />
                   </span>
                 </div>
-                <span className="gallery-tag">{item.categoryLabel}</span>
+                <span className="gallery-mini-tag">{item.categoryLabel}</span>
               </div>
-              <div className="gallery-info">
-                <h3 className="gallery-item-title">{item.title}</h3>
-                <p className="gallery-item-desc">{item.description}</p>
+              <div className="gallery-1line-info" title={item.title}>
+                <span className="gallery-1line-title">{item.title}</span>
               </div>
             </div>
           ))}

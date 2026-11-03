@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Copy, Check, Heart, ShieldAlert, Smartphone, QrCode } from 'lucide-react';
+import { Copy, Check, ShieldAlert, Smartphone, QrCode, Building2 } from 'lucide-react';
 import { Language } from '../types';
 import { translations } from '../data/translations';
 import { ImageWithFallback } from './ImageWithFallback';
@@ -9,24 +9,25 @@ interface DonationProps {
 }
 
 export const Donation: React.FC<DonationProps> = ({ currentLang }) => {
-  const [copied, setCopied] = useState(false);
+  const [copiedUpi, setCopiedUpi] = useState(false);
+  const [copiedAcc, setCopiedAcc] = useState(false);
+  const [copiedIfsc, setCopiedIfsc] = useState(false);
   const t = translations[currentLang];
 
-  const handleCopyUPI = async () => {
+  const copyToClipboard = async (text: string, setStatus: (val: boolean) => void) => {
     try {
-      await navigator.clipboard.writeText(t.donation.upiId);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
+      await navigator.clipboard.writeText(text);
+      setStatus(true);
+      setTimeout(() => setStatus(false), 3000);
     } catch {
-      // Fallback if clipboard API is restricted
       const textArea = document.createElement('textarea');
-      textArea.value = t.donation.upiId;
+      textArea.value = text;
       document.body.appendChild(textArea);
       textArea.select();
       document.execCommand('copy');
       document.body.removeChild(textArea);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 3000);
+      setStatus(true);
+      setTimeout(() => setStatus(false), 3000);
     }
   };
 
@@ -72,11 +73,11 @@ export const Donation: React.FC<DonationProps> = ({ currentLang }) => {
                     <span className="upi-id-text">{t.donation.upiId}</span>
                     <button
                       type="button"
-                      onClick={handleCopyUPI}
+                      onClick={() => copyToClipboard(t.donation.upiId, setCopiedUpi)}
                       className="copy-btn"
-                      title={copied ? t.donation.copiedUpi : t.donation.copyUpiBtn}
+                      title={copiedUpi ? t.donation.copiedUpi : t.donation.copyUpiBtn}
                     >
-                      {copied ? (
+                      {copiedUpi ? (
                         <>
                           <Check size={16} color="#059669" />
                           <span className="copied-label">{t.donation.copiedUpi}</span>
@@ -93,11 +94,11 @@ export const Donation: React.FC<DonationProps> = ({ currentLang }) => {
               </div>
             </div>
 
-            {/* Right: Account Verification & How to Pay */}
+            {/* Right: Bank Account Verification & Details */}
             <div className="donation-info-col">
               <div className="account-details-card">
                 <h3 className="details-header">
-                  <Heart size={20} className="details-heart" />
+                  <Building2 size={20} className="details-heart" />
                   <span>{t.donation.beneficiaryTitle}</span>
                 </h3>
 
@@ -108,8 +109,63 @@ export const Donation: React.FC<DonationProps> = ({ currentLang }) => {
                   </div>
                   <div className="detail-row">
                     <span className="detail-label">{t.donation.bankNameLabel}</span>
-                    <span className="detail-val">{t.donation.bankName}</span>
+                    <strong className="detail-val" style={{ color: 'var(--brand-primary)', fontWeight: 700 }}>
+                      {t.donation.bankName}
+                    </strong>
                   </div>
+
+                  {/* Account Number with Quick Copy */}
+                  <div className="detail-row bank-copy-row">
+                    <div className="bank-label-group">
+                      <span className="detail-label">{t.donation.accountNumberLabel}</span>
+                      <strong className="detail-val code-font">{t.donation.accountNumber}</strong>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => copyToClipboard(t.donation.accountNumber, setCopiedAcc)}
+                      className="copy-btn-mini"
+                      title={copiedAcc ? t.donation.copiedAcc : t.donation.copyAccBtn}
+                    >
+                      {copiedAcc ? (
+                        <>
+                          <Check size={14} color="#059669" />
+                          <span>{t.donation.copiedAcc}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy size={14} />
+                          <span>{t.donation.copyAccBtn}</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  {/* IFSC Code with Quick Copy */}
+                  <div className="detail-row bank-copy-row">
+                    <div className="bank-label-group">
+                      <span className="detail-label">{t.donation.ifscLabel}</span>
+                      <strong className="detail-val code-font">{t.donation.ifsc}</strong>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => copyToClipboard(t.donation.ifsc, setCopiedIfsc)}
+                      className="copy-btn-mini"
+                      title={copiedIfsc ? t.donation.copiedIfsc : t.donation.copyIfscBtn}
+                    >
+                      {copiedIfsc ? (
+                        <>
+                          <Check size={14} color="#059669" />
+                          <span>{t.donation.copiedIfsc}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy size={14} />
+                          <span>{t.donation.copyIfscBtn}</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+
                   <div className="detail-row">
                     <span className="detail-label">{t.donation.upiIdLabel}</span>
                     <span className="detail-val code-font">{t.donation.upiId}</span>

@@ -1,0 +1,747 @@
+
+/* ==========================================================================
+   GALLERY — Compact Flexbox Grid with 1-Line Info
+   ========================================================================== */
+.gallery-flexboxes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: flex-start;
+}
+
+.gallery-flex-box {
+  width: calc(25% - 0.85rem);
+  min-width: 150px;
+  flex-shrink: 0;
+  background: #FFFFFF;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+@media (max-width: 1024px) {
+  .gallery-flex-box { width: calc(33.33% - 0.85rem); }
+}
+@media (max-width: 720px) {
+  .gallery-flex-box { width: calc(50% - 0.85rem); }
+}
+@media (max-width: 420px) {
+  .gallery-flex-box { width: calc(50% - 0.5rem); }
+}
+
+.gallery-flex-box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.15);
+}
+
+.gallery-flex-box.is-news-clipping {
+  border-color: #FEF3C7;
+  background: #FFFBEB;
+}
+
+.gallery-small-img-wrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #0F172A;
+}
+
+.gallery-small-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.35s ease;
+  display: block;
+}
+
+.gallery-flex-box:hover .gallery-small-img {
+  transform: scale(1.07);
+}
+
+.gallery-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.48);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.22s;
+  color: #FFF;
+}
+
+.gallery-flex-box:hover .gallery-hover-overlay {
+  opacity: 1;
+}
+
+.zoom-btn {
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.gallery-mini-tag {
+  position: absolute;
+  bottom: 0.4rem;
+  left: 0.4rem;
+  font-size: 0.67rem;
+  font-weight: 700;
+  background: rgba(15,23,42,0.78);
+  color: #FFF;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.gallery-1line-info {
+  padding: 0.45rem 0.6rem;
+  border-top: 1px solid #F1F5F9;
+}
+
+.gallery-1line-title {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #1E293B;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.3;
+}
+
+/* ==========================================================================
+   CONTACT — Stylish Social Card
+   ========================================================================== */
+.contact-quick-actions {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.contact-social-card {
+  margin-top: 1.5rem;
+  background: linear-gradient(135deg, #0F172A 0%, #1E297A 100%);
+  border-radius: 14px;
+  padding: 1.25rem 1.25rem 1.1rem;
+  box-shadow: 0 6px 20px rgba(15,23,42,0.18);
+}
+
+.contact-social-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.7);
+  display: block;
+  margin-bottom: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.contact-social-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.7rem;
+}
+
+@media (max-width: 480px) {
+  .contact-social-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-social-box {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-social-box::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0);
+  transition: background 0.2s;
+  border-radius: 10px;
+}
+
+.contact-social-box:hover::before {
+  background: rgba(255,255,255,0.08);
+}
+
+.contact-social-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.contact-social-box.insta-box {
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #FFF;
+}
+
+.contact-social-box.fb-box {
+  background: #1877F2;
+  color: #FFF;
+}
+
+.social-icon-wrapper {
+  flex-shrink: 0;
+  opacity: 0.95;
+}
+
+.social-box-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+}
+
+.social-box-text strong {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.social-box-text span {
+  font-size: 0.75rem;
+  opacity: 0.85;
+  color: #FFFFFF;
+}
+
+/* ==========================================================================
+   HEADER — Top-Strip Social Links & Mobile Social Row
+   ========================================================================== */
+.top-social-divider {
+  color: rgba(255,255,255,0.35);
+  margin: 0 0.2rem;
+  font-size: 0.8rem;
+}
+
+.top-social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.82);
+  text-decoration: none;
+  transition: color 0.18s;
+  padding: 0.1rem 0.2rem;
+  border-radius: 4px;
+}
+
+.top-social-link:hover {
+  color: #FFFFFF;
+}
+
+.top-social-link.top-insta:hover {
+  color: #F9A8D4;
+}
+
+.top-social-link.top-fb:hover {
+  color: #93C5FD;
+}
+
+.top-social-text {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .top-social-text {
+    display: inline;
+  }
+}
+
+.mobile-social-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
+.mobile-social-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.88rem;
+  transition: opacity 0.18s, transform 0.18s;
+}
+
+.mobile-social-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.mobile-social-btn.mobile-insta-btn {
+  background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #FFF;
+}
+
+.mobile-social-btn.mobile-fb-btn {
+  background: #1877F2;
+  color: #FFF;
+}
+
+/* ==========================================================================
+   HERO — Social Media Strip
+   ========================================================================== */
+.hero-social-strip {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 1rem 0 1.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-social-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.03em;
+}
+
+.hero-social-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.38rem 0.9rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.18s, box-shadow 0.18s;
+  color: #FFF;
+}
+
+.hero-social-pill:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+}
+
+.hero-social-pill.insta-pill {
+  background: linear-gradient(135deg, #f09433 0%, #dc2743 50%, #bc1888 100%);
+}
+
+.hero-social-pill.fb-pill {
+  background: #1877F2;
+}
+
+/* ==========================================================================
+   FOOTER — Social Media Box
+   ========================================================================== */
+.footer-social-box {
+  margin-top: 1.25rem;
+}
+
+.footer-social-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.55);
+  display: block;
+  margin-bottom: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.footer-social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.48rem 1rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.18s, transform 0.18s;
+  color: #FFF;
+}
+
+.footer-social-btn:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.footer-insta-btn {
+  background: linear-gradient(135deg, #f09433 0%, #dc2743 50%, #bc1888 100%);
+}
+
+.footer-fb-btn {
+  background: #1877F2;
+}
+
+/* ==========================================================================
+   DONATION — Bank Copy Buttons
+   ========================================================================== */
+.bank-copy-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.bank-label-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+
+.copy-btn-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.32rem 0.7rem;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 7px;
+  background: #F8FAFC;
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.18s;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.copy-btn-mini:hover {
+  background: #0F172A;
+  color: #FFF;
+  border-color: #0F172A;
+  transform: translateY(-1px);
+}
+
+.code-font {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.92rem;
+  letter-spacing: 0.03em;
+  color: #0F172A;
+}
+
+/* ==========================================================================
+   EVENT PHOTOS — Center aligned grid
+   ========================================================================== */
+.event-photos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.event-photo-item {
+  width: calc(33.33% - 0.85rem);
+  min-width: 140px;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: #0F172A;
+}
+
+@media (max-width: 768px) {
+  .event-photo-item { width: calc(50% - 0.85rem); }
+}
+@media (max-width: 480px) {
+  .event-photo-item { width: 100%; }
+}
+
+.event-photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.event-photo-item:hover img {
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   GENERAL — Info Boxes (wrap plain-looking lines in styled boxes)
+   ========================================================================== */
+.info-box {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 1.25rem 1.4rem;
+  margin-top: 1rem;
+}
+
+.info-box-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.info-box-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #F1F5F9;
+  font-size: 0.92rem;
+  color: #334155;
+}
+
+.info-box-row:last-child {
+  border-bottom: none;
+}
+
+.info-box-label {
+  font-weight: 700;
+  color: #0F172A;
+  min-width: 90px;
+  flex-shrink: 0;
+}
+
+.info-box-value {
+  color: #475569;
+}
+
+/* ==========================================================================
+   CONTACT SECTION — Enhanced stylish overall styling
+   ========================================================================== */
+.contact-section {
+  background: linear-gradient(160deg, #F8FAFC 0%, #EEF2FF 100%);
+}
+
+.contact-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 4px 24px rgba(15,23,42,0.07);
+  height: 100%;
+}
+
+.contact-form-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 18px;
+  padding: 2rem;
+  box-shadow: 0 4px 24px rgba(15,23,42,0.07);
+  height: 100%;
+}
+
+.contact-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin-top: 1rem;
+}
+
+.contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.contact-row:last-child {
+  border-bottom: none;
+}
+
+.contact-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
+  color: #1E297A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.row-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #64748B;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.row-value {
+  font-size: 0.95rem;
+  color: #1E293B;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.link-highlight {
+  color: #1E297A;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.18s;
+}
+
+.link-highlight:hover {
+  color: #EA580C;
+  text-decoration: underline;
+}
+
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.82rem;
+  color: #059669;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 0.3rem;
+  transition: color 0.18s;
+}
+
+.map-link:hover {
+  color: #047857;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   HERO IMAGE — object-fit fix
+   ========================================================================== */
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.hero-main-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+}
+
+/* ==========================================================================
+   HERO CARD IMAGE — No zoom cursor, no pointer, clean display
+   ========================================================================== */
+.hero-main-card {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  cursor: default;
+}
+
+.hero-card-image-wrap img {
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ==========================================================================
+   HERO TEXT — Maximum visibility forced (white, strong shadow)
+   ========================================================================== */
+.hero-section .hero-headline,
+.hero-section h1 {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.98), 0 1px 6px rgba(0,0,0,0.98) !important;
+}
+
+.hero-section .hero-subheadline,
+.hero-section .hero-sub-light,
+.hero-section p {
+  color: #F0F4FF !important;
+  text-shadow: 0 1px 10px rgba(0,0,0,0.95), 0 1px 4px rgba(0,0,0,0.95) !important;
+}
+
+.hero-section .hero-badge-dark span,
+.hero-section .hero-motto-dark .motto-text,
+.hero-section .hero-trust-bar .trust-item span,
+.hero-section .hero-trust-bar .trust-item {
+  color: #F8FAFC !important;
+}
+
+.hero-section .hero-badge-dark {
+  color: #FED7AA !important;
+}
+
+.hero-section .hero-motto-dark {
+  color: #FED7AA !important;
+}
+
+.hero-section .overlay-title,
+.hero-section .overlay-desc,
+.hero-section .overlay-badge {
+  color: #0F172A !important;
+  text-shadow: none !important;
+}
+
+/* ==========================================================================
+   HOME PAGE GALLERY — No zoom/pointer cursor (view only)
+   ========================================================================== */
+.home-page-wrapper .gallery-flex-box {
+  cursor: default;
+}
+
+.home-page-wrapper .gallery-hover-overlay {
+  display: none;
+}
+
+.home-page-wrapper .gallery-flex-box:hover {
+  transform: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.home-page-wrapper .gallery-flex-box:hover .gallery-small-img {
+  transform: none;
+}
+
+/* ==========================================================================
+   QR CODE — Larger display in donate section
+   ========================================================================== */
+.donation-qr-col {
+  min-width: 320px;
+}
+
+@media (min-width: 768px) {
+  .qr-image-wrapper {
+    padding: 1.25rem;
+  }
+
+  .donation-qr-img {
+    max-width: 300px;
+  }
+}
+
+/* ==========================================================================
+   STAT NUMBER — Always in English numerals
+   ========================================================================== */
+.stat-number {
+  font-variant-numeric: normal !important;
+  font-feature-settings: normal !important;
+}

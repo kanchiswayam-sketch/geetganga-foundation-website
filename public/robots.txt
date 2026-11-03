@@ -1,0 +1,5 @@
+# robots.txt for Geetganga Social Foundation Solapur
+User-agent: *
+Allow: /
+
+Sitemap: https://geetgangafoundation.org/sitemap.xml

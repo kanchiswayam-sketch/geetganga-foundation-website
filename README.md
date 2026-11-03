@@ -1,59 +1,92 @@
-# GEETGANGA SOCIAL FOUNDATION SOLAPUR — Official Website (Stage 1)
+# GEETGANGA SOCIAL FOUNDATION SOLAPUR — Official Website (Premium Multi-Page)
 
 > **"Serving Society Through Health, Sports, Education & Social Service"**  
 > **"आरोग्य, क्रीडा, शिक्षण आणि समाजसेवेच्या माध्यमातून समाजसेवा"**  
 > *ब्रीदवाक्य / Guiding Creed: आरोग्यम् धनसंपदा (Health is Supreme Wealth)*
 
-Official, modern, mobile-first website for **Geetganga Social Foundation Solapur** (गीतगंगा सोशल फाऊंडेशन सोलापूर), a grassroots non-profit social organization based in Bhavani Peth, Solapur, Maharashtra, India.
+Official, national-level, mobile-friendly multi-page website for **Geetganga Social Foundation Solapur** (गीतगंगा सोशल फाऊंडेशन सोलापूर), a registered non-profit social organization based at 102 C 73, Bhawani Peth, Solapur, Maharashtra, India.
 
 ---
 
-## 🌟 Key Features
+## 🌟 Architecture & Pages
 
-1. **Brand Identity & Authenticity**
-   - Incorporates the official foundation logo (`public/assets/logo.png`) featuring the symbolic tree of health and life supported by caring hands.
-   - Preserves original color palette: Saffron Orange (`#EA580C`), Deep Maroon/Crimson (`#9F1239`), and Trust Royal Indigo (`#1E297A`).
-   - Official Sanskrit/Marathi motto: **आरोग्यम् धनसंपदा**.
+The application is structured into **18 distinct pages** powered by a client-side HashRouter that guarantees compatibility with all static hosting providers (zero 404 rewrite issues on page refresh):
 
-2. **Complete Dual-Language Support (मराठी & English)**
-   - Instant language switching across all sections, navigation, forms, and cards.
-   - Clean Unicode Devanagari script designed with readable Marathi typography (`Mukta`).
-   - Structured translations dictionary in `src/data/translations.ts` for easy maintenance.
+### 1. Institutional Governance & About
+- **Home (`#/`)**: Photographic hero background with dark overlay, quick-action matrix, foundation summary, core guiding pillars, leadership preview, interactive activities, real camp photos gallery, Union Bank UPI QR donation card, and contact hub.
+- **About Us (`#/about`)**: Foundation origins in Bhawani Peth, mission scope, and 4 guiding pillars.
+- **Mission & Vision (`#/mission-vision`)**: Concrete objectives and long-term societal vision.
+- **Leadership (`#/leadership`)**: Democratic non-profit governance overview and standards.
+- **Managing Committee (`#/managing-committee`)**: Verified executive officers with official portraits:
+  - **Venkatesh Gangadhar Kanchi** — Chairman (`3d2c3362-1eab-489d-8aa5-d9dbb12f74b0.jpg`)
+  - **Dr Vinay Satyanarayan Gundla** — Vice Chairman (`5d1591c3-d8e4-4536-8c27-8280bf769ee1.jpg`)
+  - **Chandrakant Gangadhar Kanchi** — Secretary (`cf7ce6c7-2fcb-4058-baf9-e61826ed2036.jpg`)
+  - **Venugopal Narsing Uttur** — Treasurer (`838fb306-60a5-400e-8310-d588fe2378f0.jpg`)
+  - **Rupali Venkatesh Kanchi** — Joint Treasurer (`40e489f4-e48d-4ec5-92c9-ae022920637c.jpg`)
+  - **Ratnakar Subhash Nakka** — Director (`5bbef55d-7548-43dc-b615-54ed5c786d5e.jpg`)
+  - **Deepa Chandrakant Kanchi** — Director (`bc7c1e47-3518-4703-91ad-c5cc1e31baf3.jpg`)
+- **Advisory Committee (`#/advisory-committee`)**: Distinguished advisors:
+  - **Ashok Tarachand Sanklecha** — Business
+  - **Nandkishor Udgiri** — Chartered Accountant
+  - **Channesh Suryakant Indi** — Sports
+  - **Shivanand Vasant Ganji** — Law
 
-3. **Homepage Sections**
-   - **Header:** Sticky navbar with foundation logo, bilingual name, desktop links, language toggle, and mobile drawer.
-   - **Hero Section:** Prominent mission statement, verified Solapur badge, creed banner, and quick action buttons.
-   - **About the Foundation:** Background of community service in Solapur, core guiding pillars, and verified headquarters address.
-   - **Our Mission and Vision:** Clear, inspirational dual-card layout detailing concrete goals and long-term societal vision.
-   - **Our Key Activities:** Interactive 5-pillar showcase:
-     - Health & medical camps (*आरोग्य व वैद्यकीय शिबिरे*)
-     - Blood donation & health awareness (*रक्तदान व आरोग्य जनजागृती*)
-     - Sports & youth development (*क्रीडा व युवा विकास*)
-     - Education & student support (*शिक्षण व विद्यार्थी सहाय्य*)
-     - Social service & community welfare (*समाजसेवा व लोककल्याण*)
-   - **Activities & Photo Gallery:** Filterable gallery (All, Health Camps, Blood Donation, Community) using authentic foundation photos, complete with an accessible lightbox modal.
-   - **Donation Section:** High-contrast display of the official Union Bank BHIM UPI QR code (`public/assets/donation-qr.png`), one-tap UPI ID copy (`QR919527076866-1658@unionbankofindia`), verified beneficiary details, step-by-step payment instructions, and required security disclaimer.
-   - **Volunteer Section:** Engaging community call-to-action with benefits of joining and a direct prefilled WhatsApp connection button.
-   - **Contact Section:** Direct helpline / WhatsApp link (`+91 9970610781`), official email (`gitgangafoundation@gmail.com`), physical address (`102 C 73, Bhavani Peth, Solapur - 413002`), map navigation link, and an interactive message form.
-   - **Footer:** Foundation identity, activity links, navigation, disclaimer, language toggle, and copyright.
+### 2. Key Programmes
+- **Health and Medical Camps (`#/health-camps`)**: Specialized diagnosis, free consultations, BP/sugar screening, ECG testing, and complimentary medicines with Shri Markandey Solapur Sahakari Rugnalaya.
+- **Blood Donation (`#/blood-donation`)**: Voluntary blood drives, free blood grouping, donor directories, and awareness campaigns.
+- **Sports and Youth Development (`#/sports-youth`)**: Outdoor athletics, sports kits for youth, anti-addiction education, and healthy living.
+- **Education and Social Service (`#/education-social`)**: Notebook and educational kit distribution, school dropout prevention, and community relief.
 
-4. **Floating Action Hub**
-   - Quick floating WhatsApp chat button (`9970610781`) for immediate community assistance.
-   - Smooth scroll-to-top button.
+### 3. Media & Event Gallery
+- **Events and Programmes Gallery (`#/events`)**: Rich, interactive **Event Gallery** featuring 9 authentic, documented foundation events with **27 real camp photographs** in `public/assets/events/`, venue details, dates, participant and beneficiary metrics, partner organizations, interactive image zoom lightbox modal, and direct WhatsApp inquiry links.
+- **Photo Gallery (`#/gallery`)**: Authentic activity photographs with interactive filter tabs and an accessible full-screen lightbox zoom.
+- **Video Gallery (`#/video-gallery`)**: Video documentaries and camp footage from regional initiatives.
+- **News and Announcements (`#/news`)**: Official circulars, upcoming camp dates, and volunteer announcements.
 
-5. **Graceful Asset Fallback**
-   - Reusable `ImageWithFallback` component ensures no broken image icons ever display if an asset is missing or loading fails.
+### 4. Engagement & Legal
+- **Donate (`#/donate`)**: High-contrast Union Bank of India BHIM UPI QR code, copyable UPI ID (`QR919527076866-1658@unionbankofindia`), verification notice, step-by-step payment guide, and legal disclaimer.
+- **Become a Volunteer (`#/volunteer`)**: Call-to-action with benefits and prefilled WhatsApp connection.
+- **Contact Us (`#/contact`)**: Office address, helpline/WhatsApp (`9970610781`), official email (`geetgangasocialfoundation@gmail.com`), Google Maps link, and spam-protected direct contact form.
+- **Privacy Policy (`#/privacy-policy`)**: Detailed commitment to zero patient/Aadhaar data storage, financial transparency, and digital safety.
+
+---
+
+## 🔒 Security Architecture & Review Checklist
+
+Security is treated as a core architectural priority:
+
+1. **Zero Secret Exposure in Frontend:**
+   - No private API keys, administrative passwords, database tokens, or secrets reside in client-side code.
+2. **No Insecure Frontend-Only Authentication:**
+   - Avoided fake "client-side admin login" pages that give a false impression of security. Any administrative panel must be backed by an independent, authenticated server-side API with Role-Based Access Control (RBAC) and Two-Factor Authentication (2FA).
+3. **Privacy & Identity Data Protection:**
+   - Private registration documents, Aadhaar cards, PAN cards, and confidential patient records are excluded from public assets and kept untracked via `.gitignore`.
+4. **Content Security Policy & Secure Headers:**
+   - Configured in `index.html`:
+     ```html
+     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+     <meta name="referrer" content="strict-origin-when-cross-origin" />
+     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self' https:; object-src 'none'; base-uri 'self';" />
+     ```
+5. **Form Spam Protection & Input Sanitization:**
+   - Form inputs are sanitized against HTML/script injection tags (`<[^>]*>?`).
+   - Anti-bot invisible honeypot trap field (`_honeypot`).
+   - Time-based rate-limiting check prevents automated script bursts.
+   - Submissions dispatch directly to the user's encrypted WhatsApp client, avoiding middleman database leaks.
+6. **Payment Safeguards:**
+   - Transparent UPI QR display with explicit reminder to verify payee name (`GEETGANGA SOCIAL FOUNDATION SOLAPUR`) before authorizing payments.
+   - The site does not store card numbers, PINs, or banking credentials.
 
 ---
 
 ## 🛠️ Technology Stack
 
-- **Framework:** React 18 (TypeScript)
+- **Framework:** React 18 with TypeScript
 - **Bundler:** Vite 5
-- **Styling:** Modular Responsive CSS with Custom Design Tokens (Zero paid dependencies, mobile-first)
+- **Routing:** Lightweight, typed client-side HashRouter (100% immune to 404 errors on static hosts)
+- **Styling:** Custom Modular CSS with CSS Variables (Zero paid dependencies, mobile-first)
 - **Icons:** `lucide-react`
-- **Fonts:** Google Fonts (`Mukta` for Devanagari & Latin readability, `Plus Jakarta Sans`)
-- **Hosting Target:** Free static hosting (GitHub Pages, Vercel, Netlify, Cloudflare Pages)
+- **Typography:** Google Fonts (`Mukta` for Devanagari & Latin readability, `Plus Jakarta Sans`)
 
 ---
 
@@ -73,36 +106,59 @@ geetganga-foundation-website/
 │       └── foundation-activity-6.jpg  # Doctors & Medical Camp Team
 ├── src/
 │   ├── components/
-│   │   ├── About.tsx                  # About the Foundation
-│   │   ├── Contact.tsx                # Contact Info & WhatsApp Form
+│   │   ├── About.tsx                  # About Summary Component
+│   │   ├── Breadcrumbs.tsx            # Inner Page Breadcrumbs
+│   │   ├── Contact.tsx                # Contact Info & Spam-Protected Form
 │   │   ├── Donation.tsx               # Donation QR & UPI Copy
-│   │   ├── Footer.tsx                 # Footer & Links
-│   │   ├── Gallery.tsx                # Photo Gallery & Lightbox
-│   │   ├── Header.tsx                 # Navigation & Language Switch
-│   │   ├── Hero.tsx                   # Hero Banner & Creed
-│   │   ├── ImageWithFallback.tsx      # Graceful Image Error Handler
-│   │   ├── KeyActivities.tsx          # 5 Core Activity Pillars
-│   │   ├── MissionVision.tsx          # Mission & Vision Cards
+│   │   ├── Footer.tsx                 # Comprehensive 4-Column Footer
+│   │   ├── Gallery.tsx                # Photo Gallery with Lightbox
+│   │   ├── Header.tsx                 # Sticky Navbar with Dropdowns
+│   │   ├── Hero.tsx                   # Photographic Hero Background
+│   │   ├── ImageWithFallback.tsx      # Graceful Asset Fallback
+│   │   ├── KeyActivities.tsx          # 5-Pillar Showcase
+│   │   ├── MissionVision.tsx          # Mission & Vision Summary
 │   │   └── Volunteer.tsx              # Volunteer Call to Action
+│   ├── pages/
+│   │   ├── HomePage.tsx               # Main Homepage
+│   │   ├── AboutPage.tsx              # Detailed About Page
+│   │   ├── MissionVisionPage.tsx      # Mission & Vision Page
+│   │   ├── LeadershipPage.tsx         # Leadership Overview Page
+│   │   ├── ManagingCommitteePage.tsx  # Executive Managing Committee (7 Members)
+│   │   ├── AdvisoryCommitteePage.tsx  # Advisory Committee (4 Members)
+│   │   ├── EventsPage.tsx             # Past & Upcoming Events Calendar
+│   │   ├── HealthCampsPage.tsx        # Medical & Health Camps Deep-Dive
+│   │   ├── BloodDonationPage.tsx      # Blood Donation Deep-Dive
+│   │   ├── SportsYouthPage.tsx        # Sports & Youth Development Deep-Dive
+│   │   ├── EducationSocialPage.tsx    # Education & Social Service Deep-Dive
+│   │   ├── PhotoGalleryPage.tsx       # Dedicated Photo Gallery Page
+│   │   ├── VideoGalleryPage.tsx       # Video Documentary Page
+│   │   ├── DonatePage.tsx             # Dedicated Scan & Donate Page
+│   │   ├── VolunteerPage.tsx          # Dedicated Volunteer Page
+│   │   ├── NewsPage.tsx               # News & Announcements
+│   │   ├── ContactPage.tsx            # Dedicated Contact Page
+│   │   └── PrivacyPolicyPage.tsx      # Privacy Policy & Security Standards
 │   ├── data/
-│   │   └── translations.ts            # English & Marathi Dictionary
+│   │   └── translations.ts            # Complete Marathi & English Dictionaries
 │   ├── styles/
-│   │   └── index.css                  # Responsive CSS & Theme Variables
+│   │   └── index.css                  # Responsive CSS & Theme Tokens
 │   ├── types/
-│   │   └── index.ts                   # TypeScript Interfaces & Types
-│   ├── App.tsx                        # Main Application Layout
-│   └── main.tsx                       # React Entry Point
-├── index.html                         # Base HTML with SEO & Fonts
+│   │   ├── index.ts                   # Core Data Models
+│   │   └── routes.ts                  # Route Types & Route Mapping
+│   ├── utils/
+│   │   └── router.ts                  # Hash-Based Typed Client Router
+│   ├── App.tsx                        # Main App Shell & Route Switcher
+│   └── main.tsx                       # Application Entry Point
+├── index.html                         # Base HTML with CSP, Security & Fonts
 ├── package.json
 ├── tsconfig.json
 ├── tsconfig.node.json
-├── vite.config.ts                     # Configured with base: './' for static hosting
+├── vite.config.ts                     # Relative path configuration (base: './')
 └── README.md
 ```
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Running and Deploying
 
 ### Prerequisites
 - Node.js (v18.0.0 or later)
@@ -110,10 +166,6 @@ geetganga-foundation-website/
 
 ### Installation
 ```bash
-# Clone or navigate to the project directory
-cd d:/geetganga-foundation-website
-
-# Install dependencies
 npm install
 ```
 
@@ -121,46 +173,18 @@ npm install
 ```bash
 npm run dev
 ```
-Open your browser and navigate to `http://localhost:3000` (or the URL shown in your terminal).
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Building for Production
 ```bash
 npm run build
 ```
-The optimized static build will be generated in the `dist/` directory, ready to deploy to any free static host.
+Creates an optimized static bundle in `dist/`.
 
-### Previewing the Production Build
-```bash
-npm run preview
-```
+### Free Static Hosting Deployment
+The project is configured with `base: './'` in `vite.config.ts`, making it directly deployable to any free static host:
 
----
-
-## 🌐 Free Static Hosting Deployment
-
-The project is preconfigured with relative asset paths (`base: './'`), making deployment effortless on any free hosting service:
-
-### Option A: Vercel
-1. Install Vercel CLI: `npm i -g vercel`
-2. Run: `vercel`
-3. Output directory: `dist`
-4. Build command: `npm run build`
-
-### Option B: Netlify
-1. Drag and drop the `dist/` folder into Netlify Drop (https://app.netlify.com/drop).
-2. Or connect your Git repository with:
-   - Build command: `npm run build`
-   - Publish directory: `dist`
-
-### Option C: GitHub Pages
-1. In `vite.config.ts`, verify `base: './'`.
-2. Push code to your GitHub repository.
-3. In repository settings -> **Pages**, set source to GitHub Actions or deploy the `dist` branch.
-
----
-
-## 🛡️ Safeguards & Verification Compliance
-
-- **No Speculative or Invented Data:** Only verified contact details, addresses, and public service facts from official foundation banners are displayed.
-- **Privacy First:** No private Aadhaar cards, personal identification numbers, or confidential patient health records are published or stored.
-- **Transparent Payment Guidance:** The Union Bank UPI QR code is provided solely as a direct payment method to the foundation's official bank account. The website does not store banking credentials or claim instant payment verification.
+- **GitHub Pages:** Set publishing source to the `dist` directory or push via GitHub Actions.
+- **Vercel:** Run `vercel` or connect your repository; build command is `npm run build`, output is `dist`.
+- **Netlify:** Drag and drop the `dist/` directory into Netlify Drop, or connect Git with publish directory `dist`.
+- **Cloudflare Pages:** Connect Git with build command `npm run build` and output directory `dist`.
